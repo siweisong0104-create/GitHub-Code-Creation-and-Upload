@@ -34,3 +34,14 @@
   - Include summary template to verify understanding
   - No typecheck needed for markdown skill files
 ---
+
+## 2026/04/10 18:25 - US-004
+- Added detailed code generation prompts in SKILL.md
+- Added prompts for project structure, source code, config files, tests
+- Added completion confirmation template
+- **Learnings for future iterations:**
+  - Break down code generation into clear steps (structure, source, config, tests)
+  - Include confirmation template to let user verify before proceeding
+  - No typecheck needed for markdown skill files
+  - Code generation is the core feature of this skill
+---
