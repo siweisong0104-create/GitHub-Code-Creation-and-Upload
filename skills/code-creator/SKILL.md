@@ -220,9 +220,84 @@ All tests pass. Ready to proceed to GitHub push?
 
 ### Step 6: GitHub Push (Optional)
 
-Push to GitHub when ready:
-- Ask for GitHub repository info (new or existing)
-- Initialize git and push
+Push the code to GitHub when the user is ready. Use this prompt to guide the GitHub push:
+
+```
+## GitHub Push
+
+Now let's push your code to GitHub. First, I need some information.
+
+### Repository Setup
+
+1. **Ask: New or existing repository?**
+   - "Do you want to create a new GitHub repository or push to an existing one?"
+
+2. **If New Repository**:
+   - Ask for repository name (default: project name from Step 1)
+   - Ask if repository should be public or private
+   - Ask for optional description
+   - Ask if user wants to add a .gitignore (usually yes)
+
+3. **If Existing Repository**:
+   - Ask for the existing repository URL (e.g., https://github.com/username/repo)
+   - Ask if they want to add the remote or replace existing
+
+### Push Process
+
+1. **Initialize Git** (if not already initialized):
+   ```
+   git init
+   git add .
+   git commit -m "Initial commit"
+   ```
+
+2. **Create repository** (if new):
+   - Use GitHub CLI: `gh repo create [repo-name] --public` or `--private`
+   - Or provide manual instructions for web creation
+
+3. **Add remote**:
+   ```
+   git remote add origin https://github.com/username/repo.git
+   ```
+
+4. **Push to GitHub**:
+   ```
+   git push -u origin main
+   ```
+
+5. **Verify push**:
+   - Confirm repository exists at the expected URL
+   - List pushed files
+
+After pushing, confirm:
+```
+## GitHub Push Complete
+
+Repository: [URL]
+Branch: main
+Files pushed: [count]
+
+Your project is now live on GitHub! 
+- View at: [repo URL]
+- Clone with: git clone [repo URL]
+
+Would you like me to help with anything else?
+```
+```
+
+If user skips GitHub push:
+```
+## GitHub Push Skipped
+
+No problem! Your project is ready locally at [project directory].
+
+When you're ready to push to GitHub:
+1. Create a repository at https://github.com/new
+2. Run: git remote add origin [your-repo-url]
+3. Run: git push -u origin main
+
+Is there anything else you'd like to do with your project?
+```
 
 ## Installation
 

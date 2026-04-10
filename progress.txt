@@ -68,3 +68,15 @@
   - Provide clear pass/fail status in test report
   - No typecheck needed for markdown skill files
 ---
+
+## 2026/04/10 18:55 - US-007
+- Added GitHub push prompts in SKILL.md
+- Added prompts for new vs existing repository
+- Added prompts for repo settings (public/private, description)
+- Added git init, remote add, push commands
+- Added push confirmation and skip handling
+- **Learnings for future iterations:**
+  - Include both new and existing repo scenarios
+  - Provide fallback instructions for when user skips push
+  - No typecheck needed for markdown skill files
+---
