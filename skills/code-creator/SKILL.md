@@ -301,6 +301,48 @@ Is there anything else you'd like to do with your project?
 
 ## Installation
 
-Ask user where to install the skill:
-- Local: `./skills/code-creator/`
-- Global: `~/.claude/skills/code-creator/`
+Ask the user where they want to install the skill. Use this prompt to guide installation:
+
+```
+## Installation
+
+Your project is complete! Before we finish, would you like me to help you install the Code Creator skill so you can use it again in the future?
+
+### Installation Options
+
+1. **Local installation** (recommended for project-specific use):
+   - Location: `./skills/code-creator/`
+   - The skill will be available when running Claude Code from this directory
+
+2. **Global installation** (recommended for persistent use):
+   - Location: `~/.claude/skills/code-creator/`
+   - The skill will be available in all Claude Code sessions
+
+### Installation Process
+
+**If Local:**
+```
+mkdir -p ./skills/code-creator
+cp -r skills/code-creator/* ./skills/code-creator/
+```
+The skill will be available at `/code-creator`
+
+**If Global:**
+```
+mkdir -p ~/.claude/skills/code-creator
+cp -r skills/code-creator/* ~/.claude/skills/code-creator/
+```
+The skill will be available at `/code-creator` in any session
+
+Ask: "Where would you like to install the Code Creator skill?"
+
+After installation, confirm:
+```
+## Installation Complete
+
+Code Creator skill installed at: [local/global path]
+Activation command: /code-creator
+
+You can now use /code-creator to create new projects!
+```
+```

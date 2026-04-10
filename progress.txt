@@ -80,3 +80,14 @@
   - Provide fallback instructions for when user skips push
   - No typecheck needed for markdown skill files
 ---
+
+## 2026/04/10 19:05 - US-008
+- Added installation prompts in SKILL.md
+- Added local and global installation options
+- Added installation commands for each option
+- Added installation confirmation template
+- **Learnings for future iterations:**
+  - Include clear installation path options
+  - Provide copy commands for easy installation
+  - No typecheck needed for markdown skill files
+---
