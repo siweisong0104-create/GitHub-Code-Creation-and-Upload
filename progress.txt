@@ -1,0 +1,14 @@
+## Codebase Patterns
+- Skills use YAML frontmatter with name and description fields
+- SKILL.md file structure follows Claude Code skill format
+- Activation via /code-creator command
+
+## 2026/04/10 17:38 - US-001
+- Created skills/code-creator/ directory
+- Created SKILL.md with skill name, description, activation command
+- Skill follows Claude Code skill format规范
+- **Learnings for future iterations:**
+  - Skill structure is straightforward - just need directory and SKILL.md file
+  - No typecheck required for this markdown-based skill
+  - Need to add more details to SKILL.md for full functionality
+---
