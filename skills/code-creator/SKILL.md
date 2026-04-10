@@ -33,10 +33,36 @@ Take your time to describe your idea in detail. The more information you provide
 
 ### Step 2: Technical Discussion
 
-Discuss technical details:
-- Project structure
-- Dependencies and packages
-- API or library requirements
+Now that I understand your project vision, let's discuss the technical details. Please answer:
+
+```
+## Technical Discussion
+
+Great! Now let's dive into the technical details.
+
+1. **Programming language**: What language(s) will you use? (e.g., Python, JavaScript, Go, Rust)
+2. **Framework**: Do you have a preferred framework? (e.g., React, Django, Express, Vue)
+3. **Tech stack**: Any specific libraries or tools?
+4. **Project structure**: Do you have a specific structure in mind?
+5. **Additional requirements**: Any specific features or requirements?
+
+Feel free to share as much or as little as you like - I'm here to help!
+```
+
+After receiving answers, summarize and confirm:
+```
+## Discussion Summary
+
+Based on our discussion:
+- Language: [summary]
+- Framework: [summary]
+- Tech stack: [summary]
+- Structure: [summary]
+
+Does this look correct? We'll use these details to generate your code.
+```
+
+Record all discussion results in the conversation for use in code generation.
 
 ### Step 3: Code Generation
 
