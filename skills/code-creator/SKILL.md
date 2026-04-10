@@ -120,9 +120,29 @@ Fix any failures before proceeding.
 Push to GitHub:
 
 1. **Check if should push**: Ask user if they want to push to GitHub
-2. **New repo**: Create via web or `gh repo create`
-3. **Existing repo**: Add remote and push
-4. **Push**: `git add . && git commit -m "Complete" && git push -u origin [branch]`
+2. **Use GitHub CLI (gh)**:
+   ```
+   # Check if gh is available
+   gh auth status
+   
+   # If not logged in:
+   gh auth login --hostname github.com
+   # Follow the device flow - a code will be displayed
+   # Enter code at https://github.com/login/device
+   ```
+3. **Create and push new repo**:
+   ```
+   gh repo create [repo-name] --public --source=. --push
+   ```
+4. **Or push to existing repo**:
+   ```
+   git remote add origin https://github.com/username/repo.git
+   git push -u origin [branch]
+   ```
+
+**GitHub CLI Installation (if needed)**:
+- Windows: `winget install GitHub.cli`
+- After install, restart terminal and run `gh auth login`
 
 ### Step 9: Git Cleanup
 
