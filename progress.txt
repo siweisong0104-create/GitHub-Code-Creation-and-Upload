@@ -1,3 +1,4 @@
+
 ## Codebase Patterns
 - Skills use YAML frontmatter with name and description fields
 - SKILL.md file structure follows Claude Code skill format
@@ -20,5 +21,16 @@
 - **Learnings for future iterations:**
   - Use markdown code blocks for prompts to ensure clear formatting
   - Keep prompts conversational and welcoming in tone
+  - No typecheck needed for markdown skill files
+---
+
+## 2026/04/10 18:08 - US-003
+- Added technical discussion prompts in SKILL.md
+- Added structured questions: language, framework, tech stack, structure
+- Added discussion summary template for confirmation
+- Records discussion results for code generation
+- **Learnings for future iterations:**
+  - Keep prompts in markdown code blocks for clear separation
+  - Include summary template to verify understanding
   - No typecheck needed for markdown skill files
 ---
