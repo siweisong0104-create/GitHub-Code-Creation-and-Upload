@@ -121,9 +121,52 @@ All files are ready in the project directory. Ready to proceed to code review?
 
 ### Step 4: Code Review
 
-Review the generated code:
-- Run type checking
-- Check code quality and best practices
+Review the generated code for quality and best practices. Use this prompt to guide the code review:
+
+```
+## Code Review
+
+Now let's review the generated code to ensure quality and best practices.
+
+### Review Process
+
+1. **Run type checking**:
+   - For TypeScript/JS: Run `tsc --noEmit` or `npm run typecheck`
+   - For Python: Run `mypy` or `pyright`
+   - For Go: Run `go vet` and `gofmt`
+   - For Rust: Run `cargo check`
+   - Note any type errors and fix them
+
+2. **Check code quality**:
+   - Review code for readability and clarity
+   - Check for proper error handling
+   - Verify naming conventions are consistent
+   - Look for code duplication that could be refactored
+
+3. **Check best practices**:
+   - Security: No hardcoded secrets, proper input validation
+   - Performance: No obvious inefficiencies
+   - Maintainability: Clear comments, good documentation
+
+4. **Provide review report**:
+   - Summary of findings
+   - Issues found (if any)
+   - Recommendations for improvement
+```
+
+After reviewing, present findings:
+```
+## Code Review Complete
+
+Type checking: [PASSED/FAILED - list any errors]
+Code quality: [summary of quality review]
+Best practices: [summary of compliance]
+
+[If issues found]: I've fixed the following issues:
+- [list fixes applied]
+
+The code is now ready for testing. Proceed to Step 5?
+```
 
 ### Step 5: Testing
 

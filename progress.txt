@@ -45,3 +45,14 @@
   - No typecheck needed for markdown skill files
   - Code generation is the core feature of this skill
 ---
+
+## 2026/04/10 18:35 - US-005
+- Added code review prompts in SKILL.md
+- Added prompts for type checking (TS, Python, Go, Rust)
+- Added code quality and best practices review
+- Added review report template
+- **Learnings for future iterations:**
+  - Include language-specific type check commands
+  - Provide clear pass/fail status in review report
+  - No typecheck needed for markdown skill files
+---
