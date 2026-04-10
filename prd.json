@@ -1,0 +1,121 @@
+{
+  "project": "GitHub Code Creation and Upload",
+  "branchName": "ralph/code-creator-skill",
+  "description": "创建 Claude Code Skill，帮助用户创建开源代码并推送到 GitHub",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "创建 Skill 基本结构",
+      "description": "作为开发者，我需要创建 Claude Code Skill 的基本文件结构。",
+      "acceptanceCriteria": [
+        "创建 skills/code-creator/ 目录",
+        "创建 SKILL.md 基础文件，包含 skill 名称和描述",
+        "包含激活命令 /code-creator",
+        "文件符合 Claude Code skill 格式规范",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "添加需求收集功能",
+      "description": "作为用户，我想激活 skill 后告诉它我想创建什么样的开源代码。",
+      "acceptanceCriteria": [
+        "在 SKILL.md 中添加用户需求接收的 prompts",
+        "包含友好的欢迎信息和引导问题",
+        "记录用户的需求描述",
+        "Typecheck passes"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "添加技术实现讨论功能",
+      "description": "作为开发者，我想和 skill 讨论技术实现细节。",
+      "acceptanceCriteria": [
+        "添加结构化问题（语言、框架、技术栈）",
+        "支持自由对话了解详细需求",
+        "记录讨论结果用于代码生成",
+        "Typecheck passes"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "添加代码生成功能",
+      "description": "作为用户，我想让 skill 根据讨论结果生成完整代码。",
+      "acceptanceCriteria": [
+        "根据需求生成项目结构",
+        "生成源代码文件",
+        "生成 README.md、LICENSE、.gitignore",
+        "代码能够正常运行",
+        "Typecheck passes"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "添加代码审核功能",
+      "description": "作为开发者，我想让 skill 审核生成的代码。",
+      "acceptanceCriteria": [
+        "运行类型检查",
+        "检查代码规范和最佳实践",
+        "提供审核报告",
+        "Typecheck passes"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "添加测试功能",
+      "description": "作为开发者，我想让 skill 测试生成的代码。",
+      "acceptanceCriteria": [
+        "运行项目测试",
+        "验证代码构建",
+        "提供测试报告",
+        "Typecheck passes"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-007",
+      "title": "添加 GitHub 推送功能",
+      "description": "作为用户，我想让 skill 把代码推送到 GitHub。",
+      "acceptanceCriteria": [
+        "询问用户 GitHub 仓库信息",
+        "支持新建仓库或已有仓库",
+        "初始化 git 并推送",
+        "Typecheck passes"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-008",
+      "title": "添加安装选项功能",
+      "description": "作为用户，我想选择 skill 安装位置。",
+      "acceptanceCriteria": [
+        "支持安装到本地 ./skills/",
+        "支持安装到全局 ~/.claude/skills/",
+        "询问用户安装位置",
+        "Typecheck passes"
+      ],
+      "priority": 8,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
