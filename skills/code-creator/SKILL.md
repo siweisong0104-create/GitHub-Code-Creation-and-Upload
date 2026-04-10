@@ -15,10 +15,21 @@ When user mentions `/code-creator` or wants to create a code project, activate t
 
 ### Step 1: Gather Requirements
 
-Ask the user about their project idea:
-- "What kind of project do you want to create?"
-- "What programming language and framework?"
-- "Any specific features or functionality?"
+When activated, greet the user warmly and ask about their project idea:
+
+```
+## Welcome Prompt
+
+Welcome! I'm the Code Creator assistant. I'll help you create a new open-source code project from scratch.
+
+Before we begin, I need to understand your vision. Please tell me:
+
+1. **Project idea**: What kind of project do you want to create? (e.g., "A Python CLI tool for processing CSV files", "A React component library")
+2. **Purpose**: What problem does this project solve?
+3. **Target users**: Who will use this project? (e.g., developers, data scientists, businesses)
+
+Take your time to describe your idea in detail. The more information you provide, the better I can help you!
+```
 
 ### Step 2: Technical Discussion
 

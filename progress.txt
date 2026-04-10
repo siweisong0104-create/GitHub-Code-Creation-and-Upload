@@ -12,3 +12,13 @@
   - No typecheck required for this markdown-based skill
   - Need to add more details to SKILL.md for full functionality
 ---
+
+## 2026/04/10 17:58 - US-002
+- Added welcome prompt with structured questions in SKILL.md
+- Added user requirement fields: project idea, purpose, target users
+- Follows Claude Code skill format规范
+- **Learnings for future iterations:**
+  - Use markdown code blocks for prompts to ensure clear formatting
+  - Keep prompts conversational and welcoming in tone
+  - No typecheck needed for markdown skill files
+---
