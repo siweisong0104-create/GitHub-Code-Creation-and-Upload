@@ -1,11 +1,11 @@
 ---
 name: code-creator
-description: Create and push open-source code projects to GitHub. Use this skill when users want to create a new code project, generate complete source code, add tests and documentation, and optionally push to GitHub. Handles the full workflow from requirements gathering to code generation, testing, and GitHub push.
+description: Create and push open-source code projects to GitHub using Ralph automation. This skill handles the complete workflow: requirement analysis, PRD creation, Ralph automation, comprehensive testing (unit, E2E, security, coverage), and GitHub push.
 ---
 
 # Code Creator
 
-This skill helps users create open-source code projects and push them to GitHub.
+This skill helps users create open-source code projects and push them to GitHub with full automation and comprehensive testing.
 
 ## Activation
 
@@ -15,334 +15,272 @@ When user mentions `/code-creator` or wants to create a code project, activate t
 
 ### Step 1: Gather Requirements
 
-When activated, greet the user warmly and ask about their project idea:
+Ask the user detailed questions about their project:
 
 ```
-## Welcome Prompt
+## Welcome to Code Creator!
 
-Welcome! I'm the Code Creator assistant. I'll help you create a new open-source code project from scratch.
+I'll help you create a complete open-source project with full testing. Let's start with some questions.
 
-Before we begin, I need to understand your vision. Please tell me:
-
-1. **Project idea**: What kind of project do you want to create? (e.g., "A Python CLI tool for processing CSV files", "A React component library")
-2. **Purpose**: What problem does this project solve?
-3. **Target users**: Who will use this project? (e.g., developers, data scientists, businesses)
-
-Take your time to describe your idea in detail. The more information you provide, the better I can help you!
+1. **Project idea**: What do you want to build? (e.g., "A Python CLI tool for processing CSV files")
+2. **Purpose**: What problem does this solve?
+3. **Target users**: Who will use this?
+4. **Key features**: What are the main features?
+5. **Language preference**: Any specific language? (Python, JavaScript, Go, Rust, etc.)
+6. **Framework**: Any preferred framework?
+7. **Testing preference**: Any specific testing frameworks?
 ```
 
-### Step 2: Technical Discussion
+### Step 2: Create Project Directory
 
-Now that I understand your project vision, let's discuss the technical details. Please answer:
-
-```
-## Technical Discussion
-
-Great! Now let's dive into the technical details.
-
-1. **Programming language**: What language(s) will you use? (e.g., Python, JavaScript, Go, Rust)
-2. **Framework**: Do you have a preferred framework? (e.g., React, Django, Express, Vue)
-3. **Tech stack**: Any specific libraries or tools?
-4. **Project structure**: Do you have a specific structure in mind?
-5. **Additional requirements**: Any specific features or requirements?
-
-Feel free to share as much or as little as you like - I'm here to help!
-```
-
-After receiving answers, summarize and confirm:
-```
-## Discussion Summary
-
-Based on our discussion:
-- Language: [summary]
-- Framework: [summary]
-- Tech stack: [summary]
-- Structure: [summary]
-
-Does this look correct? We'll use these details to generate your code.
-```
-
-Record all discussion results in the conversation for use in code generation.
-
-### Step 3: Code Generation
-
-Generate the complete project based on gathered requirements and technical discussion. Use this prompt to guide the code generation:
+Create the project directory and initialize git:
 
 ```
-## Code Generation
+## Setting Up Project
 
-Based on our discussion, I'll now generate the complete project code.
-
-### Requirements Summary
-- Project: [project idea from Step 1]
-- Language: [from Step 2]
-- Framework: [from Step 2]
-- Tech stack: [from Step 2]
-
-### Generation Process
-
-1. **Create project structure**:
-   - Determine appropriate directory structure for the language/framework
-   - Create necessary directories (src/, tests/, docs/, etc.)
-   - Set up package.json, requirements.txt, or equivalent
-
-2. **Generate source code**:
-   - Create main entry point files
-   - Implement core functionality based on project purpose
-   - Add utility functions and helpers as needed
-   - Follow best practices for the specific language/framework
-
-3. **Generate configuration files**:
-   - README.md with project description, installation, usage
-   - LICENSE (default: MIT)
-   - .gitignore appropriate for the language
-   - Any framework-specific configs (tsconfig.json, pyproject.toml, etc.)
-
-4. **Generate tests** (if applicable):
-   - Create test files matching source files
-   - Include basic test cases
-   - Follow testing best practices for the language
-
-Please generate all files now. Start with the project structure, then create each source file with complete, working code.
+Creating project structure...
 ```
 
-After generating, confirm completion:
-```
-## Generation Complete
+1. Create project directory
+2. Initialize git repository (`git init`)
+3. Copy Ralph scripts to `./scripts/ralph/`
 
-I've generated the following:
-- Project structure: [list directories]
-- Source files: [list files created]
-- Config files: [README.md, LICENSE, .gitignore]
-- Tests: [list test files if any]
+### Step 3: Generate PRD
 
-All files are ready in the project directory. Ready to proceed to code review?
-```
-
-### Step 4: Code Review
-
-Review the generated code for quality and best practices. Use this prompt to guide the code review:
+Use the PRD skill to generate a detailed Product Requirements Document:
 
 ```
-## Code Review
+## Creating PRD
 
-Now let's review the generated code to ensure quality and best practices.
-
-### Review Process
-
-1. **Run type checking**:
-   - For TypeScript/JS: Run `tsc --noEmit` or `npm run typecheck`
-   - For Python: Run `mypy` or `pyright`
-   - For Go: Run `go vet` and `gofmt`
-   - For Rust: Run `cargo check`
-   - Note any type errors and fix them
-
-2. **Check code quality**:
-   - Review code for readability and clarity
-   - Check for proper error handling
-   - Verify naming conventions are consistent
-   - Look for code duplication that could be refactored
-
-3. **Check best practices**:
-   - Security: No hardcoded secrets, proper input validation
-   - Performance: No obvious inefficiencies
-   - Maintainability: Clear comments, good documentation
-
-4. **Provide review report**:
-   - Summary of findings
-   - Issues found (if any)
-   - Recommendations for improvement
+Generating detailed requirements document...
 ```
 
-After reviewing, present findings:
-```
-## Code Review Complete
+1. Create `tasks/prd-[project-name].md` with:
+   - Project overview
+   - Goals
+   - User stories (small, actionable)
+   - Functional requirements
+   - Technical considerations
 
-Type checking: [PASSED/FAILED - list any errors]
-Code quality: [summary of quality review]
-Best practices: [summary of compliance]
+### Step 4: Convert to prd.json
 
-[If issues found]: I've fixed the following issues:
-- [list fixes applied]
-
-The code is now ready for testing. Proceed to Step 5?
-```
-
-### Step 5: Testing
-
-Test the generated code to ensure it works correctly. Use this prompt to guide testing:
+Use the Ralph skill to convert PRD to prd.json format:
 
 ```
-## Testing
+## Converting to Ralph Format
 
-Now let's test the generated code to ensure it works correctly.
-
-### Testing Process
-
-1. **Run project tests**:
-   - For Node.js/TypeScript: Run `npm test` or `yarn test`
-   - For Python: Run `pytest` or `unittest`
-   - For Go: Run `go test`
-   - For Rust: Run `cargo test`
-   - Record test results and any failures
-
-2. **Verify build succeeds**:
-   - For Node.js: Run `npm run build` or `yarn build`
-   - For Python: Verify package installs correctly (`pip install -e .`)
-   - For Go: Run `go build`
-   - For Rust: Run `cargo build`
-   - Ensure no build errors
-
-3. **Test basic functionality**:
-   - If applicable, run the main entry point
-   - Verify basic operations work as expected
-   - Check that dependencies are properly configured
-
-4. **Provide test report**:
-   - Test suite results (passed/failed/total)
-   - Build status
-   - Any issues found
+Creating task list for automated implementation...
 ```
 
-After testing, present results:
+1. Convert PRD to `prd.json`
+2. Ensure stories are small enough for one iteration each
+
+### Step 5: Run Ralph Automation
+
+Run Ralph to automatically implement the project:
+
 ```
-## Testing Complete
+## Running Ralph
 
-Test results: [X passed, Y failed]
-Build status: [SUCCESS/FAILED]
-Functional check: [PASSED/FAILED]
+Starting automated code generation...
 
-[If issues found]: I've fixed the following:
-- [list fixes applied]
+This will:
+1. Create a feature branch
+2. Implement each user story
+3. Run quality checks (typecheck, tests)
+4. Commit automatically
+5. Repeat until all stories pass
 
-All tests pass. Ready to proceed to GitHub push?
+Run: ./scripts/ralph/ralph.sh --tool claude [iterations]
 ```
 
-### Step 6: GitHub Push (Optional)
+Execute Ralph and monitor progress until completion.
 
-Push the code to GitHub when the user is ready. Use this prompt to guide the GitHub push:
+### Step 6: Comprehensive Testing
+
+After Ralph completes, run comprehensive tests:
+
+```
+## Comprehensive Testing
+
+Now let's run thorough testing to ensure code quality.
+```
+
+#### 6.1 Unit Tests
+
+Run unit tests based on project type:
+
+| Language | Command |
+|----------|---------|
+| JavaScript/TypeScript | `npm test` or `yarn test` |
+| Python | `pytest` or `python -m unittest` |
+| Go | `go test ./...` |
+| Rust | `cargo test` |
+| Java | `mvn test` or `gradle test` |
+| Ruby | `bundle exec rspec` |
+
+#### 6.2 Test Coverage
+
+Generate coverage report:
+
+| Language | Command |
+|----------|---------|
+| JavaScript/TypeScript | `npm test -- --coverage` or `jest --coverage` |
+| Python | `pytest --cov=. --cov-report=html` |
+| Go | `go test -coverprofile=coverage.out ./...` |
+| Rust | `cargo tarpaulin` or `cargo coverage` |
+
+Report coverage percentage and ensure it meets threshold (default: 80%).
+
+#### 6.3 Type Checking
+
+Run type checks:
+
+| Language | Command |
+|----------|---------|
+| TypeScript | `tsc --noEmit` |
+| Python | `mypy .` or `pyright` |
+| Go | `go vet ./...` |
+| Rust | `cargo check` |
+
+#### 6.4 Linting
+
+Run linters:
+
+| Language | Command |
+|----------|---------|
+| JavaScript/TypeScript | `eslint .` or `npm run lint` |
+| Python | `pylint .` or `flake8` |
+| Go | `gofmt -d .` |
+| Rust | `cargo clippy` |
+
+#### 6.5 Security Scanning
+
+Run security checks:
+
+| Language | Command |
+|----------|---------|
+| JavaScript/TypeScript | `npm audit` or `npm audit --audit-level=high` |
+| Python | `bandit -r .` or `safety check` |
+| Go | `gosec ./...` |
+| Rust | `cargo audit` |
+
+Fix any critical or high severity vulnerabilities.
+
+#### 6.6 E2E Testing (for Web Projects)
+
+For web projects, run E2E tests:
+
+```
+## E2E Testing
+
+Running end-to-end tests...
+```
+
+1. Check if E2E tests exist (e.g., Playwright, Cypress)
+2. If not, create basic E2E test structure
+3. Run E2E tests
+4. Verify in browser using dev-browser skill for manual verification
+
+#### 6.7 Build Verification
+
+Verify the project builds successfully:
+
+| Language | Command |
+|----------|---------|
+| JavaScript/TypeScript | `npm run build` or `yarn build` |
+| Python | `python setup.py build` |
+| Go | `go build -o main .` |
+| Rust | `cargo build --release` |
+
+### Step 7: Test Report
+
+Generate and present a comprehensive test report:
+
+```
+## Test Report
+
+### Unit Tests
+- Status: [PASSED/FAILED]
+- Tests run: [X]
+- Passed: [X]
+- Failed: [X]
+
+### Coverage
+- Percentage: [X]%
+- Threshold: 80%
+- Status: [PASSED/FAILED]
+
+### Type Check
+- Status: [PASSED/FAILED]
+- Errors: [X]
+
+### Linting
+- Status: [PASSED/FAILED]
+- Issues: [X]
+
+### Security
+- Vulnerabilities found: [X]
+- Critical: [X]
+- High: [X]
+- Fixed: [X]
+
+### E2E Tests (if applicable)
+- Status: [PASSED/FAILED]
+- Tests run: [X]
+
+### Build
+- Status: [PASSED/FAILED]
+
+### Overall Status: [GREEN/RED]
+```
+
+If any tests fail, fix them before proceeding.
+
+### Step 8: GitHub Push
+
+Push to GitHub:
 
 ```
 ## GitHub Push
 
-Now let's push your code to GitHub. First, I need some information.
+Let's push your project to GitHub!
 
-### Repository Setup
+1. **New or existing repo?**
+   - If new: Create repo with `gh repo create [name] --public`
+   - If existing: Add remote and push
 
-1. **Ask: New or existing repository?**
-   - "Do you want to create a new GitHub repository or push to an existing one?"
-
-2. **If New Repository**:
-   - Ask for repository name (default: project name from Step 1)
-   - Ask if repository should be public or private
-   - Ask for optional description
-   - Ask if user wants to add a .gitignore (usually yes)
-
-3. **If Existing Repository**:
-   - Ask for the existing repository URL (e.g., https://github.com/username/repo)
-   - Ask if they want to add the remote or replace existing
-
-### Push Process
-
-1. **Initialize Git** (if not already initialized):
+2. **Push process:**
    ```
-   git init
    git add .
-   git commit -m "Initial commit"
-   ```
-
-2. **Create repository** (if new):
-   - Use GitHub CLI: `gh repo create [repo-name] --public` or `--private`
-   - Or provide manual instructions for web creation
-
-3. **Add remote**:
-   ```
+   git commit -m "Complete project with tests"
    git remote add origin https://github.com/username/repo.git
-   ```
-
-4. **Push to GitHub**:
-   ```
    git push -u origin main
    ```
-
-5. **Verify push**:
-   - Confirm repository exists at the expected URL
-   - List pushed files
-
-After pushing, confirm:
-```
-## GitHub Push Complete
-
-Repository: [URL]
-Branch: main
-Files pushed: [count]
-
-Your project is now live on GitHub! 
-- View at: [repo URL]
-- Clone with: git clone [repo URL]
-
-Would you like me to help with anything else?
-```
 ```
 
-If user skips GitHub push:
-```
-## GitHub Push Skipped
+### Step 9: Summary
 
-No problem! Your project is ready locally at [project directory].
-
-When you're ready to push to GitHub:
-1. Create a repository at https://github.com/new
-2. Run: git remote add origin [your-repo-url]
-3. Run: git push -u origin main
-
-Is there anything else you'd like to do with your project?
-```
-
-## Installation
-
-Ask the user where they want to install the skill. Use this prompt to guide installation:
+Present final results:
 
 ```
-## Installation
+## Project Complete! 🎉
 
-Your project is complete! Before we finish, would you like me to help you install the Code Creator skill so you can use it again in the future?
+Your project has been created and pushed!
 
-### Installation Options
+- **Project**: [name]
+- **Description**: [description]
+- **Files created**: [list]
+- **GitHub**: [repo URL]
+- **Branch**: [branch name]
 
-1. **Local installation** (recommended for project-specific use):
-   - Location: `./skills/code-creator/`
-   - The skill will be available when running Claude Code from this directory
+### Testing Summary
+- Unit Tests: [X] passed
+- Coverage: [X]%
+- Type Check: [PASSED/FAILED]
+- Linting: [PASSED/FAILED]
+- Security: [X] vulnerabilities fixed
+- Build: [PASSED/FAILED]
 
-2. **Global installation** (recommended for persistent use):
-   - Location: `~/.claude/skills/code-creator/`
-   - The skill will be available in all Claude Code sessions
-
-### Installation Process
-
-**If Local:**
-```
-mkdir -p ./skills/code-creator
-cp -r skills/code-creator/* ./skills/code-creator/
-```
-The skill will be available at `/code-creator`
-
-**If Global:**
-```
-mkdir -p ~/.claude/skills/code-creator
-cp -r skills/code-creator/* ~/.claude/skills/code-creator/
-```
-The skill will be available at `/code-creator` in any session
-
-Ask: "Where would you like to install the Code Creator skill?"
-
-After installation, confirm:
-```
-## Installation Complete
-
-Code Creator skill installed at: [local/global path]
-Activation command: /code-creator
-
-You can now use /code-creator to create new projects!
-```
+Would you like any modifications?
 ```
