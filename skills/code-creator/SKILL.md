@@ -170,9 +170,53 @@ The code is now ready for testing. Proceed to Step 5?
 
 ### Step 5: Testing
 
-Test the generated code:
-- Run project tests
-- Verify build succeeds
+Test the generated code to ensure it works correctly. Use this prompt to guide testing:
+
+```
+## Testing
+
+Now let's test the generated code to ensure it works correctly.
+
+### Testing Process
+
+1. **Run project tests**:
+   - For Node.js/TypeScript: Run `npm test` or `yarn test`
+   - For Python: Run `pytest` or `unittest`
+   - For Go: Run `go test`
+   - For Rust: Run `cargo test`
+   - Record test results and any failures
+
+2. **Verify build succeeds**:
+   - For Node.js: Run `npm run build` or `yarn build`
+   - For Python: Verify package installs correctly (`pip install -e .`)
+   - For Go: Run `go build`
+   - For Rust: Run `cargo build`
+   - Ensure no build errors
+
+3. **Test basic functionality**:
+   - If applicable, run the main entry point
+   - Verify basic operations work as expected
+   - Check that dependencies are properly configured
+
+4. **Provide test report**:
+   - Test suite results (passed/failed/total)
+   - Build status
+   - Any issues found
+```
+
+After testing, present results:
+```
+## Testing Complete
+
+Test results: [X passed, Y failed]
+Build status: [SUCCESS/FAILED]
+Functional check: [PASSED/FAILED]
+
+[If issues found]: I've fixed the following:
+- [list fixes applied]
+
+All tests pass. Ready to proceed to GitHub push?
+```
 
 ### Step 6: GitHub Push (Optional)
 

@@ -56,3 +56,15 @@
   - Provide clear pass/fail status in review report
   - No typecheck needed for markdown skill files
 ---
+
+## 2026/04/10 18:45 - US-006
+- Added testing prompts in SKILL.md
+- Added prompts for running tests (npm, pytest, go test, cargo test)
+- Added build verification (npm build, pip install, go build, cargo build)
+- Added test report template
+- **Learnings for future iterations:**
+  - Include language-specific test commands
+  - Include build verification step
+  - Provide clear pass/fail status in test report
+  - No typecheck needed for markdown skill files
+---
